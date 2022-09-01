@@ -1,0 +1,85 @@
+<form method="POST" enctype="multipart/form-data" action="/config/oci">
+    <p>Cluster-API Kubernetes Cluster Configuration for OCI</p>
+
+    <label for="clusterName">Cluster Name:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterName" name="clusterName">
+    <br><br>
+
+    <!-- <span>Provider:&nbsp;&nbsp;</span>
+    <label for="aws">AWS</label>
+    <input type="radio" name="provider" value="aws" id="aws" />
+    <label for="gcp">GCP</label>
+    <input type="radio" name="provider" value="gcp" id="gcp" />
+    <label for="azure">Azure</label>
+    <input type="radio" name="provider" value="azure" id="azure" />
+    <label for="tanzu">Tanzu</label>
+    <input type="radio" name="provider" value="tanzu" id="tanzu" />
+    <br><br> -->
+
+    <label for="kubernetesVersion">Kubernetes Version:&nbsp;&nbsp;</label>
+    <input type="text" id="kubernetesVersion" name="kubernetesVersion">
+    <br><br>
+
+    <label for="controlPlaneMachineCount">Control Plane Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="controlPlaneMachineCount" name="controlPlaneMachineCount">
+    <br><br>
+<!-- 
+    <label for="workerMachineCount">Worker Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="workerMachineCount" name="workerMachineCount">
+    <br><br> -->
+
+    <label for="clusterTopology">Cluster Topology:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterTopology" name="clusterTopology">
+    <br><br>
+
+    <label for="owner">Owner:&nbsp;&nbsp;</label>
+    <input type="text" id="owner" name="owner">
+    <br><br>
+
+    <label for="providerVersion">CAPI OCI Provider Version:&nbsp;&nbsp;</label>
+    <input type="text" id="providerVersion" name="providerVersion">
+    <br><br>
+
+    <label for="ociCompartmentID">OCI Compartment ID:&nbsp;&nbsp;</label>
+    <input type="text" id="ociCompartmentID" name="ociCompartmentID">
+    <br><br>
+    
+    <label for="ociControlPlaneMachineType">OCI Control Plane Machine Type:&nbsp;&nbsp;</label>
+    <input type="text" id="ociControlPlaneMachineType" name="ociControlPlaneMachineType">
+    <br><br>
+
+    <label for="ociControlPlaneMachineTypeOCPUs">OCI Control Plane Machine Type OCPUs:&nbsp;&nbsp;</label>
+    <input type="text" id="ociControlPlaneMachineTypeOCPUs" name="ociControlPlaneMachineTypeOCPUs">
+    <br><br>
+
+    <label for="ociNodeMachineType">OCI Node Machine Type:&nbsp;&nbsp;</label>
+    <input type="text" id="ociNodeMachineType" name="ociNodeMachineType">
+    <br><br>
+
+    <label for="ociNodeMachineTypeOCPUs">OCI Node Machine Type OCPUs:&nbsp;&nbsp;</label>
+    <input type="text" id="ociNodeMachineTypeOCPUs" name="ociNodeMachineTypeOCPUs">
+    <br><br>
+
+    <label for="ociImageID">OCI Image ID:&nbsp;&nbsp;</label>
+    <input type="text" id="ociImageID" name="ociImageID">
+    <br><br>
+
+    <label for="ociSSHKey">OCI SSH Key:&nbsp;&nbsp;</label>
+    <input type="text" id="ociSSHKey" name="ociSSHKey">
+    <br><br>
+
+    <label for="ociControlPlanePVTransitEncryption">OCI Control Plane PV Transit Encryption:&nbsp;&nbsp;</label>
+    <input type="text" id="ociControlPlanePVTransitEncryption" name="ociControlPlanePVTransitEncryption">
+    <br><br>
+
+    <label for="ociNodePVTransitEncryption">OCI Node PV Transit Encryption:&nbsp;&nbsp;</label>
+    <input type="text" id="ociNodePVTransitEncryption" name="ociNodePVTransitEncryption">
+    <br><br>
+
+    <label for="nodeMachineCount">Node Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="nodeMachineCount" name="nodeMachineCount">
+    <br><br>
+
+    <input type="submit">
+
+</form>

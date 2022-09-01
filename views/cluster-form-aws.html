@@ -1,0 +1,61 @@
+<form method="POST" enctype="multipart/form-data" action="/config/aws">
+    <p>Cluster-API Kubernetes Cluster Configuration for AWS</p>
+
+    <label for="clusterName">Cluster Name:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterName" name="clusterName">
+    <br><br>
+
+    <!-- <span>Provider:&nbsp;&nbsp;</span>
+    <label for="aws">AWS</label>
+    <input type="radio" name="provider" value="aws" id="aws" />
+    <label for="gcp">GCP</label>
+    <input type="radio" name="provider" value="gcp" id="gcp" />
+    <label for="azure">Azure</label>
+    <input type="radio" name="provider" value="azure" id="azure" />
+    <label for="tanzu">Tanzu</label>
+    <input type="radio" name="provider" value="tanzu" id="tanzu" />
+    <br><br> -->
+
+    <label for="kubernetesVersion">Kubernetes Version:&nbsp;&nbsp;</label>
+    <input type="text" id="kubernetesVersion" name="kubernetesVersion">
+    <br><br>
+
+    <label for="controlPlaneMachineCount">Control Plane Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="controlPlaneMachineCount" name="controlPlaneMachineCount">
+    <br><br>
+
+    <label for="workerMachineCount">Worker Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="workerMachineCount" name="workerMachineCount">
+    <br><br>
+
+    <label for="clusterTopology">Cluster Topology:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterTopology" name="clusterTopology">
+    <br><br>
+
+    <label for="owner">Owner:&nbsp;&nbsp;</label>
+    <input type="text" id="owner" name="owner">
+    <br><br>
+
+    <label for="providerVersion">CAPI AWS Provider Version:&nbsp;&nbsp;</label>
+    <input type="text" id="providerVersion" name="providerVersion">
+    <br><br>
+
+    <label for="awsControlPlaneMachineType">AWS Control Plane Machine Type:&nbsp;&nbsp;</label>
+    <input type="text" id="awsControlPlaneMachineType" name="awsControlPlaneMachineType">
+    <br><br>
+
+    <label for="awsNodeMachineType">AWS Node Machine Type:&nbsp;&nbsp;</label>
+    <input type="text" id="awsNodeMachineType" name="awsNodeMachineType">
+    <br><br>
+
+    <label for="awsRegion">AWS Region:&nbsp;&nbsp;</label>
+    <input type="text" id="awsRegion" name="awsRegion">
+    <br><br>
+
+    <label for="awsSSHKeyName">AWS SSH Key Name:&nbsp;&nbsp;</label>
+    <input type="text" id="awsSSHKeyName" name="awsSSHKeyName">
+    <br><br>
+
+    <input type="submit">
+
+</form>
