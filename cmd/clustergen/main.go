@@ -22,28 +22,34 @@ func main() {
 	clustergen.LogEnvVars()
 
 	router := gin.Default()
+	router.GET("/", clustergen.IndexHandler)
+	router.LoadHTMLGlob("views/*")
+
+	// Get cluster config
 	router.GET("/clusters", clustergen.GetClusters) // list cluster global configs
 	router.GET("/clusters/:id", clustergen.GetClusterByID)
 	router.POST("/clusters", clustergen.PostClusters) // create new cluster config
-	router.GET("/aws", clustergen.GetClustersAWS)     // list AWS cluster settings
-	router.GET("/aws/:id", clustergen.GetClusterAWSByID)
-	router.GET("/gcp", clustergen.GetClustersGCP) // list GCP cluster settings
-	router.GET("/gcp/:id", clustergen.GetClusterGCPByID)
-	router.GET("/oci", clustergen.GetClustersOCI) // list GCP cluster settings
-	router.GET("/oci/:id", clustergen.GetClusterOCIByID)
-	// router.GET("/azure", getclustersAzure) // list GCP cluster settings
+
+	// Get cluster config by provider
+	router.GET("/clusters/aws", clustergen.GetClustersAWS) // list AWS cluster settings
+	router.GET("/clusters/aws/:id", clustergen.GetClusterAWSByID)
+	router.GET("/clusters/gcp", clustergen.GetClustersGCP) // list GCP cluster settings
+	router.GET("/clusters/gcp/:id", clustergen.GetClusterGCPByID)
+	router.GET("/clusters/oci", clustergen.GetClustersOCI) // list OCI cluster settings
+	router.GET("/clusters/oci/:id", clustergen.GetClusterOCIByID)
+	// router.GET("/azure", getclustersAzure) // list Azure cluster settings
 	// router.GET("/azure/:id", getclusterAzureByID)
+
+	// Generate Cluster-API workload cluster manifest
 	router.GET("/generate/:id", clustergen.GenerateClusterByID)
+
+	// Form to post cluster configs
 	router.GET("/config/aws", clustergen.GetConfigAWS)
 	router.GET("/config/gcp", clustergen.GetConfigGCP)
 	router.GET("/config/oci", clustergen.GetConfigOCI)
 	router.POST("/config/aws", clustergen.PostConfigAWS)
 	router.POST("/config/gcp", clustergen.PostConfigGCP)
 	router.POST("/config/oci", clustergen.PostConfigOCI)
-	// router.GET("/package/:id", getPackageByID)
-	// router.POST("/package", postPackage)
-	router.LoadHTMLGlob("views/*")
-	router.GET("/", clustergen.IndexHandler)
 
-	router.Run("localhost:8080")
+	router.Run("localhost:8888")
 }
