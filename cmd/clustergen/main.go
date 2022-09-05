@@ -22,7 +22,10 @@ func main() {
 	clustergen.LogEnvVars()
 
 	router := gin.Default()
+
+	router.LoadHTMLGlob("templates/*")
 	router.GET("/", clustergen.IndexHandler)
+
 	router.LoadHTMLGlob("views/*")
 
 	// Get cluster config
@@ -30,7 +33,7 @@ func main() {
 	router.GET("/clusters/:id", clustergen.GetClusterByID)
 	router.POST("/clusters", clustergen.PostClusters) // create new cluster config
 
-	// Get cluster config by provider
+	// Get cluster config
 	router.GET("/clusters/aws", clustergen.GetClustersAWS) // list AWS cluster settings
 	router.GET("/clusters/aws/:id", clustergen.GetClusterAWSByID)
 	router.GET("/clusters/gcp", clustergen.GetClustersGCP) // list GCP cluster settings

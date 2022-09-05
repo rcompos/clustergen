@@ -222,7 +222,7 @@ func GenerateClusterByID(c *gin.Context) {
 
 func IndexHandler(c *gin.Context) {
 	// Handle /index
-	c.HTML(200, "index.html", nil)
+	c.HTML(http.StatusOK, "index.tmpl", gin.H{"msg": "Hello everybody!"})
 }
 
 func ClusterExists(id string) bool {
