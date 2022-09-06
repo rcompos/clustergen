@@ -217,12 +217,15 @@ func GenerateClusterByID(c *gin.Context) {
 		log.Printf("Error: %v", err)
 	}
 
+	//
+	// Return generated CAPI cluster YAML
+	//
 	c.String(http.StatusOK, string(out))
 }
 
 func IndexHandler(c *gin.Context) {
 	// Handle /index
-	c.HTML(http.StatusOK, "index.tmpl", gin.H{"msg": "Hello everybody!"})
+	c.HTML(http.StatusOK, "index.tmpl", gin.H{})
 }
 
 func ClusterExists(id string) bool {

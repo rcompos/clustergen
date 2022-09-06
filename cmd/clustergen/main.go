@@ -1,19 +1,21 @@
 package main
 
 import (
+	"log"
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"github.com/rcompos/clustergen"
 )
 
 func main() {
 
 	// //Load the .env file
-	// err := godotenv.Load(".env")
-	// if err != nil {
-	// 	log.Println("error: failed to load the env file")
-	// }
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Println("error: failed to load the env file")
+	}
 
 	if os.Getenv("ENV") == "PRODUCTION" {
 		gin.SetMode(gin.ReleaseMode)
@@ -23,10 +25,10 @@ func main() {
 
 	router := gin.Default()
 
-	router.LoadHTMLGlob("templates/*")
-	router.GET("/", clustergen.IndexHandler)
-
+	// router.LoadHTMLGlob("templates/*")
 	router.LoadHTMLGlob("views/*")
+
+	router.GET("/", clustergen.IndexHandler)
 
 	// Get cluster config
 	router.GET("/clusters", clustergen.GetClusters) // list cluster global configs
@@ -54,5 +56,6 @@ func main() {
 	router.POST("/config/gcp", clustergen.PostConfigGCP)
 	router.POST("/config/oci", clustergen.PostConfigOCI)
 
-	router.Run("localhost:8888")
+	// router.Run("localhost:8888")
+	router.Run(":8888")
 }

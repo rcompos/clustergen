@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Generate Configuration for Cluster-API Workload Cluster</title>
+</head>
+<body>
+    <h1>Generate Configuration for Cluster-API Workload Cluster</h1>
+    <h4>Provider: {{ .provider }}</h4>
+
+    <p>Generate CAPI workload cluster manifest for config ID {{ .id }}.</p>  
+    <form action="/generate/{{ .id }}" method="get">
+        <input type="submit" value="Generate">
+    </form>
+
+    <p>Cluster configuration:</p>
+    <ul>
+    {{- range .cfg }}
+       <li>{{ . }}
+    {{- end }}
+    </ul>
+
+</body>

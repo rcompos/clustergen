@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Create Configuration for Cluster-API Workload Cluster</title>
+</head>
+<body>
+    <h2>Create Configuration for Cluster-API Workload Cluster</h2>
+    <h3>{{ .msg }}</h3>
+
+    <h4>Configure CAPI workload cluster manifest</h4>
+    <form action="/config/aws" method="get">
+        <input type="submit" value="CreateAWS">
+    </form>
+    <br>
+    
+    <form action="/config/gcp" method="get">
+        <input type="submit" value="CreateGCP">
+    </form>
+    <br>
+
+    <form action="/config/oci" method="get">
+        <input type="submit" value="CreateOCI">
+    </form>
+    <br>
+
+    <h4>View configurations for CAPI workload cluster manifest</h4>
+    <form action="/clusters" method="get">
+        <input type="submit" value="GetClusters">
+    </form>
+    <br>
+
+    <!-- <h4>Generate CAPI workload cluster manifest</h4>
+    <p>Generate CAPI workload cluster manifest from specified configs.</p>  
+    <form action="/generate/{{ .id }}" method="get">
+        <input type="submit" value="Generate">
+    </form> -->
+
+</body>
