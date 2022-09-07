@@ -40,6 +40,8 @@ func main() {
 	router.GET("/clusters/aws/:id", clustergen.GetClusterAWSByID)
 	router.GET("/clusters/gcp", clustergen.GetClustersGCP) // list GCP cluster settings
 	router.GET("/clusters/gcp/:id", clustergen.GetClusterGCPByID)
+	router.GET("/clusters/azure", clustergen.GetClustersAzure) // list GCP cluster settings
+	router.GET("/clusters/azure/:id", clustergen.GetClusterAzureByID)
 	router.GET("/clusters/oci", clustergen.GetClustersOCI) // list OCI cluster settings
 	router.GET("/clusters/oci/:id", clustergen.GetClusterOCIByID)
 	// router.GET("/azure", getclustersAzure) // list Azure cluster settings
@@ -51,9 +53,11 @@ func main() {
 	// Form to post cluster configs
 	router.GET("/config/aws", clustergen.GetConfigAWS)
 	router.GET("/config/gcp", clustergen.GetConfigGCP)
+	router.GET("/config/azure", clustergen.GetConfigAzure)
 	router.GET("/config/oci", clustergen.GetConfigOCI)
 	router.POST("/config/aws", clustergen.PostConfigAWS)
 	router.POST("/config/gcp", clustergen.PostConfigGCP)
+	router.POST("/config/azure", clustergen.PostConfigAzure)
 	router.POST("/config/oci", clustergen.PostConfigOCI)
 
 	// router.Run("localhost:8888")

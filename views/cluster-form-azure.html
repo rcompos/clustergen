@@ -1,0 +1,89 @@
+<form method="POST" enctype="multipart/form-data" action="/config/azure">
+    <p>Cluster-API Kubernetes Cluster Configuration for Azure</p>
+
+    <label for="clusterName">Cluster Name:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterName" name="clusterName">
+    <br><br>
+
+    <!-- <span>Provider:&nbsp;&nbsp;</span>
+    <label for="azure">azure</label>
+    <input type="radio" name="provider" value="azure" id="azure" />
+    <label for="gcp">GCP</label>
+    <input type="radio" name="provider" value="gcp" id="gcp" />
+    <label for="azure">Azure</label>
+    <input type="radio" name="provider" value="azure" id="azure" />
+    <label for="tanzu">Tanzu</label>
+    <input type="radio" name="provider" value="tanzu" id="tanzu" />
+    <br><br> -->
+
+    <label for="kubernetesVersion">Kubernetes Version:&nbsp;&nbsp;</label>
+    <input type="text" id="kubernetesVersion" name="kubernetesVersion">
+    <br><br>
+
+    <label for="controlPlaneMachineCount">Control Plane Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="controlPlaneMachineCount" name="controlPlaneMachineCount">
+    <br><br>
+
+    <label for="workerMachineCount">Worker Machine Count:&nbsp;&nbsp;</label>
+    <input type="text" id="workerMachineCount" name="workerMachineCount">
+    <br><br>
+
+    <label for="clusterTopology">Cluster Topology:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterTopology" name="clusterTopology">
+    <br><br>
+
+    <label for="owner">Owner:&nbsp;&nbsp;</label>
+    <input type="text" id="owner" name="owner">
+    <br><br>
+
+    <label for="providerVersion">CAPI Azure Provider Version:&nbsp;&nbsp;</label>
+    <input type="text" id="providerVersion" name="providerVersion">
+    <br><br>
+
+    <label for="azureControlPlaneMachineType">Azure Control Plane Machine Type:&nbsp;&nbsp;</label>
+    <input type="text" id="azureControlPlaneMachineType" name="azureControlPlaneMachineType">
+    <br><br>
+
+    <label for="azureNodeMachineType">Azure Node Machine Type:&nbsp;&nbsp;</label>
+    <input type="text" id="azureNodeMachineType" name="azureNodeMachineType">
+    <br><br>
+
+    <label for="azureLocation">Azure Location:&nbsp;&nbsp;</label>
+    <input type="text" id="azureLocation" name="azureLocation">
+    <br><br>
+
+    <label for="azureResourceGroup">Azure Resource Group:&nbsp;&nbsp;</label>
+    <input type="text" id="azureResourceGroup" name="azureResourceGroup">
+    <br><br>
+
+    <label for="azureSubscriptionID">Azure Subscription ID:&nbsp;&nbsp;</label>
+    <input type="text" id="azureSubscriptionID" name="azureSubscriptionID">
+    <br><br>
+
+    <label for="azureTenantID">Azure Tenant ID:&nbsp;&nbsp;</label>
+    <input type="text" id="azureTenantID" name="azureTenantID">
+    <br><br>
+
+    <label for="azureClientID">Azure Client ID:&nbsp;&nbsp;</label>
+    <input type="text" id="azureClientID" name="azureClientID">
+    <br><br>
+
+    <label for="azureClientSecret">Azure Client Secret:&nbsp;&nbsp;</label>
+    <input type="text" id="azureClientSecret" name="azureClientSecret">
+    <br><br>
+
+    <label for="azureClusterIdentitySecretName">Azure Cluster Identity Secret Name:&nbsp;&nbsp;</label>
+    <input type="text" id="azureClusterIdentitySecretName" name="azureClusterIdentitySecretName">
+    <br><br>
+
+    <label for="azureClusterIdentitySecretNamespace">Azure Cluster Identity Secret Namespace:&nbsp;&nbsp;</label>
+    <input type="text" id="azureClusterIdentitySecretNamespace" name="azureClusterIdentitySecretNamespace">
+    <br><br>
+
+    <label for="clusterIdentityName">Cluster Identity Name:&nbsp;&nbsp;</label>
+    <input type="text" id="clusterIdentityName" name="clusterIdentityName">
+    <br><br>
+
+    <input type="submit">
+
+</form>

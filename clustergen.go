@@ -49,6 +49,21 @@ type clusterGCP struct {
 	// GCPB64EncodedCredentials   string `json:"gcpB64EncodedCredentials"`
 }
 
+type clusterAzure struct {
+	ID                                  string `json:"id"`
+	AzureSubscriptionID                 string `json:"azureSubscriptionID"`
+	AzureTenantID                       string `json:"azureTenantID"`
+	AzureClientID                       string `json:"azureClientID"`
+	AzureClientSecret                   string `json:"azureClientSecret"`
+	AzureLocation                       string `json:"azureLocation"`
+	AzureResourceGroup                  string `json:"azureResourceGroup"`
+	AzureControlPlaneMachineType        string `json:"azureControlPlaneMachineType"`
+	AzureNodeMachineType                string `json:"azureNodeMachineType"`
+	AzureClusterIdentitySecretName      string `json:"azureClusterIdentitySecretName"`
+	AzureClusterIdentitySecretNamespace string `json:"azureClusterIdentitySecretNamespace"`
+	ClusterIdentityName                 string `json:"clusterIdentityName"`
+}
+
 type clusterOCI struct {
 	ID                                 string `json:"id"`
 	OCICompartmentID                   string `json:"ociCompartmentID"`
@@ -76,17 +91,18 @@ func GetClusters(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, clusters)
 }
 
-// getclusters responds with the list of all clusters as JSON.
 func GetClustersAWS(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, clustersAWS)
 }
 
-// getclusters responds with the list of all clusters as JSON.
 func GetClustersGCP(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, clustersGCP)
 }
 
-// getclusters responds with the list of all clusters as JSON.
+func GetClustersAzure(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, clustersAzure)
+}
+
 func GetClustersOCI(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, clustersOCI)
 }
@@ -151,6 +167,21 @@ func GetClusterGCPByID(c *gin.Context) {
 
 // getclusterByID locates the cluster whose ID value matches the id
 // parameter sent by the client, then returns that cluster as a response.
+func GetClusterAzureByID(c *gin.Context) {
+	id := c.Param("id")
+	// Loop through the list of clusters, looking for
+	// an cluster whose ID value matches the parameter.
+	for _, a := range clustersAzure {
+		if a.ID == id {
+			c.IndentedJSON(http.StatusOK, a)
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "clusterAzure not found"})
+}
+
+// getclusterByID locates the cluster whose ID value matches the id
+// parameter sent by the client, then returns that cluster as a response.
 func GetClusterOCIByID(c *gin.Context) {
 	id := c.Param("id")
 	// Loop through the list of clusters, looking for
@@ -174,6 +205,10 @@ func GetConfigAWS(c *gin.Context) {
 
 func GetConfigGCP(c *gin.Context) {
 	c.HTML(200, "cluster-form-gcp.html", nil)
+}
+
+func GetConfigAzure(c *gin.Context) {
+	c.HTML(200, "cluster-form-azure.html", nil)
 }
 
 func GetConfigOCI(c *gin.Context) {
@@ -209,6 +244,7 @@ func GenerateClusterByID(c *gin.Context) {
 	}
 
 	clusterctlYAML := fmt.Sprintf("./cluster-api/%v/clusterctl.yaml", id)
+	// TODO:  Add other options such as flavor...
 	cmd := fmt.Sprintf("clusterctl generate cluster %v --infrastructure=%v:%v --config %v", cname, provider, providerVersion, clusterctlYAML)
 	log.Println(cmd)
 	out, err := exec.Command("bash", "-c", cmd).Output()
