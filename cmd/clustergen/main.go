@@ -40,12 +40,10 @@ func main() {
 	router.GET("/clusters/aws/:id", clustergen.GetClusterAWSByID)
 	router.GET("/clusters/gcp", clustergen.GetClustersGCP) // list GCP cluster settings
 	router.GET("/clusters/gcp/:id", clustergen.GetClusterGCPByID)
-	router.GET("/clusters/azure", clustergen.GetClustersAzure) // list GCP cluster settings
+	router.GET("/clusters/azure", clustergen.GetClustersAzure) // list Azure cluster settings
 	router.GET("/clusters/azure/:id", clustergen.GetClusterAzureByID)
 	router.GET("/clusters/oci", clustergen.GetClustersOCI) // list OCI cluster settings
 	router.GET("/clusters/oci/:id", clustergen.GetClusterOCIByID)
-	// router.GET("/azure", getclustersAzure) // list Azure cluster settings
-	// router.GET("/azure/:id", getclusterAzureByID)
 
 	// Generate Cluster-API workload cluster manifest
 	router.GET("/generate/:id", clustergen.GenerateClusterByID)
