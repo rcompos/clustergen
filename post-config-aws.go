@@ -28,6 +28,7 @@ func PostConfigAWS(c *gin.Context) {
 	controlPlaneMachineCount := c.PostForm("controlPlaneMachineCount")
 	workerMachineCount := c.PostForm("workerMachineCount")
 	clusterTopology := c.PostForm("clusterTopology")
+	flavor := c.PostForm("flavor")
 	owner := c.PostForm("owner")
 	gitHubToken := c.PostForm("gitHubToken")
 
@@ -53,6 +54,7 @@ func PostConfigAWS(c *gin.Context) {
 		ControlPlaneMachineCount: controlPlaneMachineCountString,
 		WorkerMachineCount:       workerMachineCountString,
 		ClusterTopology:          clusterTopologyBool,
+		Flavor:                   flavor,
 		Owner:                    owner,
 		GitHubToken:              gitHubToken,
 	}
@@ -79,6 +81,7 @@ func PostConfigAWS(c *gin.Context) {
 		"\nWORKER_MACHINE_COUNT: ", newcluster.WorkerMachineCount,
 		"\nKUBERNETES_VERSION: ", newcluster.KubernetesVersion,
 		"\nCLUSTER_TOPOLOGY: ", newcluster.ClusterTopology,
+		"\nFLAVOR: ", newcluster.Flavor,
 		"\nGITHUB_TOKEN: ", newcluster.GitHubToken,
 		"\nAWS_REGION: ", newclusterAWS.AWSRegion,
 		"\nAWS_ACCESS_KEY_ID: ", newclusterAWS.AWSAccessKeyID,

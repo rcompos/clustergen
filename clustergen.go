@@ -231,12 +231,14 @@ func GenerateClusterByID(c *gin.Context) {
 	cname := ""
 	provider := ""
 	providerVersion := ""
+	flavor := ""
 	// var vals cluster
 	for _, a := range clusters {
 		if a.ID == id {
 			cname = a.ClusterName
 			provider = a.Provider
 			providerVersion = a.ProviderVersion
+			flavor = a.Flavor
 		}
 	}
 	if cname == "" {
@@ -244,9 +246,15 @@ func GenerateClusterByID(c *gin.Context) {
 	}
 
 	clusterctlYAML := fmt.Sprintf("./cluster-api/%v/clusterctl.yaml", id)
-	// TODO:  Add other options such as flavor...
-	cmd := fmt.Sprintf("clusterctl generate cluster %v --infrastructure=%v:%v --config %v", cname, provider, providerVersion, clusterctlYAML)
-	log.Println(cmd)
+
+	// Generate Cluster-API cluster configuration
+	flavorString := ""
+	if flavor != "" {
+		flavorString = fmt.Sprintf("--flavor=%v ", flavor)
+	}
+	cmd := fmt.Sprintf("clusterctl generate cluster %v --infrastructure=%v:%v %v--config %v", cname, provider, providerVersion, flavorString, clusterctlYAML)
+
+	log.Printf("Cluster-API clusterctl generate command:\n", cmd)
 	out, err := exec.Command("bash", "-c", cmd).Output()
 	if err != nil {
 		log.Printf("Failed to execute command: %s", cmd)

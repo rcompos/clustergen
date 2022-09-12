@@ -27,6 +27,7 @@ func PostConfigGCP(c *gin.Context) {
 	controlPlaneMachineCount := c.PostForm("controlPlaneMachineCount")
 	workerMachineCount := c.PostForm("workerMachineCount")
 	clusterTopology := c.PostForm("clusterTopology")
+	flavor := c.PostForm("flavor")
 	owner := c.PostForm("owner")
 	gitHubToken := c.PostForm("gitHubToken")
 
@@ -53,6 +54,7 @@ func PostConfigGCP(c *gin.Context) {
 		ControlPlaneMachineCount: controlPlaneMachineCountString,
 		WorkerMachineCount:       workerMachineCountString,
 		ClusterTopology:          clusterTopologyBool,
+		Flavor:                   flavor,
 		Owner:                    owner,
 		GitHubToken:              gitHubToken,
 	}
@@ -79,6 +81,7 @@ func PostConfigGCP(c *gin.Context) {
 		"\nWORKER_MACHINE_COUNT: ", newcluster.WorkerMachineCount,
 		"\nKUBERNETES_VERSION: ", newcluster.KubernetesVersion,
 		"\nCLUSTER_TOPOLOGY: ", newcluster.ClusterTopology,
+		"\nFLAVOR: ", newcluster.Flavor,
 		"\nGITHUB_TOKEN: ", newcluster.GitHubToken,
 		"\nGCP_REGION: ", newclusterGCP.GCPRegion,
 		"\nIMAGE_ID: ", newclusterGCP.GCPImageID,

@@ -1,6 +1,7 @@
 <form method="POST" enctype="multipart/form-data" action="/config/gcp">
-    <p>Cluster-API Kubernetes Cluster Configuration for GCP</p>
+    <h3>Cluster-API Kubernetes Cluster Configuration for GCP</h3>
 
+    <h4>Cluster-API global</h4>
     <label for="clusterName">Cluster Name:&nbsp;&nbsp;</label>
     <input type="text" id="clusterName" name="clusterName">
     <br><br>
@@ -21,10 +22,16 @@
     <input type="text" id="clusterTopology" name="clusterTopology">
     <br><br>
 
+    <label for="flavor">Flavor:&nbsp;&nbsp;</label>
+    <input type="text" id="flavor" name="flavor">
+    <br><br>
+
+    <h4>Meta-data</h4>
     <label for="owner">Owner:&nbsp;&nbsp;</label>
     <input type="text" id="owner" name="owner">
     <br><br>
 
+    <h4>Provider-specific</h4>
     <label for="providerVersion">CAPI GCP Provider Version:&nbsp;&nbsp;</label>
     <input type="text" id="providerVersion" name="providerVersion">
     <br><br>

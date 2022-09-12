@@ -28,6 +28,7 @@ func PostConfigAzure(c *gin.Context) {
 	controlPlaneMachineCount := c.PostForm("controlPlaneMachineCount")
 	workerMachineCount := c.PostForm("workerMachineCount")
 	clusterTopology := c.PostForm("clusterTopology")
+	flavor := c.PostForm("flavor")
 	owner := c.PostForm("owner")
 	gitHubToken := c.PostForm("gitHubToken")
 
@@ -57,6 +58,7 @@ func PostConfigAzure(c *gin.Context) {
 		ControlPlaneMachineCount: controlPlaneMachineCountString,
 		WorkerMachineCount:       workerMachineCountString,
 		ClusterTopology:          clusterTopologyBool,
+		Flavor:                   flavor,
 		Owner:                    owner,
 		GitHubToken:              gitHubToken,
 	}
@@ -87,6 +89,7 @@ func PostConfigAzure(c *gin.Context) {
 		"\nWORKER_MACHINE_COUNT: ", newcluster.WorkerMachineCount,
 		"\nKUBERNETES_VERSION: ", newcluster.KubernetesVersion,
 		"\nCLUSTER_TOPOLOGY: ", newcluster.ClusterTopology,
+		"\nFLAVOR: ", newcluster.Flavor,
 		"\nGITHUB_TOKEN: ", newcluster.GitHubToken,
 		"\nAZURE_LOCATION: ", newclusterAzure.AzureLocation,
 		"\nAZURE_RESOURCE_GROUP: ", newclusterAzure.AzureResourceGroup,
